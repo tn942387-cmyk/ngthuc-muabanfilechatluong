@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ngthuc Meta Optimization</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #00ff9c;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      background: #000;
+      box-shadow: 0 0 10px #00ff9c;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background: #111;
+      border: 1px solid #00ff9c;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px #00ff9c33;
+    }
+    button {
+      background: #00ff9c;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    #lockedContent { display: block; }
+    #unlockedContent { display: none; }
+    a.link-btn {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background: #00ff9c;
+      color: black;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ngthuc Meta Optimization</h1>
+    <p>Aimlock - Menu - lh</p>
+  </header>  <div class="container" id="lockedContent">
+    <div class="card">
+      <h2>Gói tối ưu Free Fire</h2>
+      <p>✔ Tăng độ nhạy cảm ứng</p>
+      <p>✔ Giảm giật lag, ổn định FPS</p>
+      <p><strong>Giá: 200.000đ</strong></p>
+      <button onclick="window.open('https://m.me/ngthuc.09', '_blank')">Mua key</button>
+    </div><div class="card">
+  <h2>Nhập key để mở khóa</h2>
+  <input type="text" id="keyInput" placeholder="Nhập key tại đây" />
+  <br />
+  <button onclick="checkKey()">Mở khóa</button>
+  <div id="result"></div>
+</div>
+
+  </div>  <div class="container" id="unlockedContent">
+    <div class="card">
+      <h2>Nội dung đã mở khóa</h2>
+      <p>Tải file và xem hướng dẫn tại đây:</p><a class="link-btn" href="https://yourlink.com/config.zip" target="_blank">Tải file tối ưu</a>
+  <a class="link-btn" href="https://youtube.com/yourvideo" target="_blank">Xem video hướng dẫn</a>
+  <a class="link-btn" href="https://yourlink.com/guide.pdf" target="_blank">Tải hướng dẫn PDF</a>
+</div>
+
+  </div>  <script>
+    function checkKey() {
+      const key = document.getElementById('keyInput').value;
+      const result = document.getElementById('result');
+
+      if (key === 'NGTHUC-123') {
+        result.style.color = '#00ff9c';
+        result.innerText = 'Key hợp lệ! Đang mở khóa...';
+
+        document.getElementById('lockedContent').style.display = 'none';
+        document.getElementById('unlockedContent').style.display = 'block';
+      } else {
+        result.style.color = 'red';
+        result.innerText = 'Key không hợp lệ!';
+      }
+    }
+  </script></body>
+</html>
