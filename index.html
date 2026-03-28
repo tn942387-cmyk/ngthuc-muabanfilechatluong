@@ -7,106 +7,166 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0b0b0b;
+      background: linear-gradient(270deg, #000000, #001f1a, #000000);
+      background-size: 600% 600%;
+      animation: bgMove 10s ease infinite;
       color: #00ff9c;
       text-align: center;
-    }
-    header {
-      padding: 20px;
-      background: #000;
-      box-shadow: 0 0 10px #00ff9c;
-    }
-    h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    .container {
-      padding: 20px;
-    }
-    .card {
-      background: #111;
-      border: 1px solid #00ff9c;
-      border-radius: 10px;
-      padding: 20px;
-      max-width: 400px;
-      margin: 20px auto;
-      box-shadow: 0 0 10px #00ff9c33;
-    }
-    button {
-      background: #00ff9c;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    input {
-      padding: 10px;
-      width: 80%;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: none;
-    }
-    #result {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    #lockedContent { display: block; }
-    #unlockedContent { display: none; }
-    a.link-btn {
-      display: block;
-      margin: 10px 0;
-      padding: 10px;
-      background: #00ff9c;
-      color: black;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
+    }@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  padding: 20px;
+  background: #000;
+  box-shadow: 0 0 15px #00ff9c;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #00ff9c;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 0 15px #00ff9c33;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+button {
+  background: #00ff9c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px;
+  width: 80%;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+#result {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#loading {
+  display: none;
+  margin-top: 15px;
+}
+
+.spinner {
+  border: 4px solid #222;
+  border-top: 4px solid #00ff9c;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#unlockedContent {
+  display: none;
+  margin-top: 20px;
+}
+
+a.button-link {
+  display: block;
+  margin: 10px auto;
+  width: 80%;
+  padding: 10px;
+  background: #00ff9c;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>Ngthuc Meta Optimization</h1>
-    <p>Aimlock - Menu - lh</p>
-  </header>  <div class="container" id="lockedContent">
+    <p>Tăng nhạy - Giảm lag - Không cần root</p>
+  </header>  <div class="container">
     <div class="card">
       <h2>Gói tối ưu Free Fire</h2>
       <p>✔ Tăng độ nhạy cảm ứng</p>
       <p>✔ Giảm giật lag, ổn định FPS</p>
-      <p><strong>Giá: 200.000đ</strong></p>
-      <button onclick="window.open('https://m.me/ngthuc.09', '_blank')">Mua key</button>
+      <p><strong>Giá: 15.000đ</strong></p>
+      <button onclick="buyKey()">Mua key qua Messenger</button>
     </div><div class="card">
   <h2>Nhập key để mở khóa</h2>
   <input type="text" id="keyInput" placeholder="Nhập key tại đây" />
   <br />
   <button onclick="checkKey()">Mở khóa</button>
+  <div id="loading"><div class="spinner"></div></div>
   <div id="result"></div>
 </div>
 
-  </div>  <div class="container" id="unlockedContent">
-    <div class="card">
-      <h2>Nội dung đã mở khóa</h2>
-      <p>Tải file và xem hướng dẫn tại đây:</p><a class="link-btn" href="https://yourlink.com/config.zip" target="_blank">Tải file tối ưu</a>
-  <a class="link-btn" href="https://youtube.com/yourvideo" target="_blank">Xem video hướng dẫn</a>
-  <a class="link-btn" href="https://yourlink.com/guide.pdf" target="_blank">Tải hướng dẫn PDF</a>
+<div id="unlockedContent" class="card">
+  <h2>Nội dung sau khi mở khóa</h2>
+  <a class="button-link" href="https://yourlink.com/config.zip">Tải file tối ưu</a>
+  <a class="button-link" href="https://youtube.com/yourvideo">Xem video hướng dẫn</a>
+  <a class="button-link" href="https://yourlink.com/guide.pdf">Tải hướng dẫn PDF</a>
 </div>
 
   </div>  <script>
+    function buyKey() {
+      document.getElementById('loading').style.display = 'block';
+      setTimeout(() => {
+        window.open('https://m.me/ngthuc.09?text=Em%20mu%E1%BB%91n%20mua%20key%20t%E1%BB%91i%20%C6%B0u%20Free%20Fire', '_blank');
+        document.getElementById('loading').style.display = 'none';
+      }, 1000);
+    }
+
     function checkKey() {
       const key = document.getElementById('keyInput').value;
       const result = document.getElementById('result');
+      const loading = document.getElementById('loading');
+      const content = document.getElementById('unlockedContent');
 
-      if (key === 'NGTHUC-123') {
-        result.style.color = '#00ff9c';
-        result.innerText = 'Key hợp lệ! Đang mở khóa...';
+      loading.style.display = 'block';
+      result.innerText = '';
 
-        document.getElementById('lockedContent').style.display = 'none';
-        document.getElementById('unlockedContent').style.display = 'block';
-      } else {
-        result.style.color = 'red';
-        result.innerText = 'Key không hợp lệ!';
-      }
+      setTimeout(() => {
+        loading.style.display = 'none';
+
+        if (key === 'NGTHUC-123') {
+          result.style.color = '#00ff9c';
+          result.innerText = 'Key hợp lệ! Đã mở khóa nội dung.';
+          content.style.display = 'block';
+        } else {
+          result.style.color = 'red';
+          result.innerText = 'Key không hợp lệ!';
+        }
+      }, 1500);
     }
   </script></body>
 </html>
